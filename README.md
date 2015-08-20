@@ -1,8 +1,9 @@
 Herbie Gist Plugin
 ==================
 
-`Gist` ist ein [Herbie](http://github.com/getherbie/herbie) Plugin, mit dem du Snippets von 
-[Gist](https://gist.github.com) in deine Website einbettest.
+`Gist` ist ein [Herbie](http://github.com/getherbie/herbie) Plugin, mit dem du [Gist](https://gist.github.com)-Schnipsel 
+von Github in deine Website einbettest.
+
 
 ## Installation
 
@@ -16,17 +17,45 @@ Danach aktivierst du das Plugin in der Konfigurationsdatei.
         enable:
             - gist
 
+
+## Konfiguration
+
+Unter *plugins.config.gist* stehen dir die folgenden Optionen zur Verfügung:
+
+    shortcode: true         # enable shortcode
+    twig: false             # enable twig function
+
+
 ## Anwendung
 
-Mit der folgenden Twig-Funktion kannst du jedes Gist-Snippet einbinden. Beispiel:
+Mit dem Gist-Shortcode kannst du in Seiteninhalten jedes beliebige Gist-Schnipsel einbinden.
 
-    {{ gist id="12345" }}
+    [[gist 123456789]]
+    
+    oder
+    
+    [[gist id="123456789"]]    
 
-Wobei "12345" die ID des gewünschten Gist ist.
+Wobei "123456789" die ID des gewünschten Gist ist.
 
-Für eine bestimmte Datei innerhalb eines Gist kannst Du einen Dateinamen angeben.
+Möchtest du eine bestimmte Datei innerhalb eines Gist anzeigen, kannst Du dies mit dem file-Parameter machen: 
+
+    [[gist id="12345" file="filename.md"]]
+    
+Mit dem Aktivieren der Twig-Funktion kannst du dies auch in Layoutdateien wie folgt nutzen:
+     
+    {{ gist id="123456789" }}    
 
     {{ gist id="12345" file="filename.md" }}
+
+
+## Parameter
+
+Name        | Beschreibung                              | Typ       | Default
+:---------- | :-----------------------------------------| :-------- | :------
+id          | Die Gist-ID                               | string    |  *empty*
+file        | Eine bestimmte Datei innerhalb des Gist   | string    |  *empty*
+
 
 ## Demo
 

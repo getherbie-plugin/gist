@@ -16,15 +16,31 @@ use Twig_SimpleFunction;
 
 class GistPlugin extends Herbie\Plugin
 {
-
     /**
-     * @param Herbie\Event $event
+     * @return array
      */
-    public function onTwigInitialized(Herbie\Event $event)
+    public function getSubscribedEvents()
     {
-        $event['twig']->addFunction(
-            new Twig_SimpleFunction('gist', [$this, 'gist'], ['is_safe' => ['html']])
+        $events = [];
+        if ((bool)$this->config('plugins.config.gist.twig', false)) {
+            $events[] = 'onTwigInitialized';
+        }
+        if ((bool)$this->config('plugins.config.gist.shortcode', true)) {
+            $events[] = 'onShortcodeInitialized';
+        }
+        return $events;
+    }
+
+    public function onTwigInitialized($twig)
+    {
+        $twig->addFunction(
+            new Twig_SimpleFunction('gist', [$this, 'gistTwig'], ['is_safe' => ['html']])
         );
+    }
+
+    public function onShortcodeInitialized($shortcode)
+    {
+        $shortcode->add('gist', [$this, 'gistShortcode']);
     }
 
     /**
@@ -32,8 +48,22 @@ class GistPlugin extends Herbie\Plugin
      * @param string $file
      * @return string
      */
-    public function gist($id, $file = '')
+    public function gistTwig($id, $file = '')
     {
         return "<script src=\"http://gist.github.com/{$id}.js" . ($file == '' ? '' : '?file=' . $file) . "\"></script>";
     }
+
+    /**
+     * @param array $options
+     * @return string
+     */
+    public function gistShortcode($options)
+    {
+        $options = $this->initOptions([
+            'id' => empty($options[0]) ? '' : $options[0],
+            'file' => ''
+        ], $options);
+        return call_user_func_array([$this, 'gistTwig'], $options);
+    }
+
 }
