@@ -30,17 +30,17 @@ Unter *plugins.config.gist* stehen dir die folgenden Optionen zur Verfügung:
 
 Mit dem Gist-Shortcode kannst du in Seiteninhalten jedes beliebige Gist-Schnipsel einbinden.
 
-    [[gist 123456789]]
+    [gist 123456789]
     
     oder
     
-    [[gist id="123456789"]]    
+    [gist id="123456789"]    
 
 Wobei "123456789" die ID des gewünschten Gist ist.
 
 Möchtest du eine bestimmte Datei innerhalb eines Gist anzeigen, kannst Du dies mit dem file-Parameter machen: 
 
-    [[gist id="12345" file="filename.md"]]
+    [gist id="12345" file="filename.md"]
     
 Mit dem Aktivieren der Twig-Funktion kannst du dies auch in Layoutdateien wie folgt nutzen:
      
