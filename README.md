@@ -1,5 +1,4 @@
-Herbie Gist Plugin
-==================
+# Herbie Gist Plugin
 
 `Gist` ist ein [Herbie](http://github.com/getherbie/herbie) Plugin, mit dem du [Gist](https://gist.github.com)-Schnipsel 
 von Github in deine Website einbettest.
