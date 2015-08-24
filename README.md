@@ -20,15 +20,19 @@ Danach aktivierst du das Plugin in der Konfigurationsdatei.
 
 ## Konfiguration
 
-Unter *plugins.config.gist* stehen dir die folgenden Optionen zur Verfügung:
+Unter `plugins.config.gist` stehen dir die folgenden Optionen zur Verfügung:
 
-    shortcode: true         # enable shortcode
-    twig: false             # enable twig function
+    # enable shortcode
+    shortcode: true
+    
+    # enable twig function
+    twig: false
 
 
 ## Anwendung
 
-Mit dem Gist-Shortcode kannst du in Seiteninhalten jedes beliebige Gist-Schnipsel einbinden.
+Mit dem Gist-Shortcode kannst du in Seiteninhalten jedes beliebige Gist-Schnipsel einbinden, wobei "123456789" die ID 
+des gewünschten Gist ist.
 
     [gist 123456789]
     
@@ -36,13 +40,12 @@ Mit dem Gist-Shortcode kannst du in Seiteninhalten jedes beliebige Gist-Schnipse
     
     [gist id="123456789"]    
 
-Wobei "123456789" die ID des gewünschten Gist ist.
-
-Möchtest du eine bestimmte Datei innerhalb eines Gist anzeigen, kannst Du dies mit dem file-Parameter machen: 
+Möchtest du eine bestimmte Datei innerhalb eines Gist anzeigen, kannst Du dies mit dem optionalen `file`-Parameter 
+machen: 
 
     [gist id="12345" file="filename.md"]
     
-Mit dem Aktivieren der Twig-Funktion kannst du dies auch in Layoutdateien wie folgt nutzen:
+Mit dem Aktivieren der Twig-Funktion kannst du Gist-Schnipsel auch in Layoutdateien einsetzen:
      
     {{ gist id="123456789" }}    
 
