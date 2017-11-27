@@ -1,6 +1,6 @@
 {
     "name": "getherbie/plugin-gist",
-    "homepage": "http://www.getherbie.org",
+    "homepage": "https://www.getherbie.org",
     "description": "Gist Plugin for Herbie.",
     "keywords": ["herbie", "plugin", "gist"],
     "type": "herbie-plugin",

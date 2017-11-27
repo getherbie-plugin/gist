@@ -61,4 +61,4 @@ file        | Eine bestimmte Datei innerhalb des Gist   | string    |  *empty*
 
 ## Demo
 
-<http://www.getherbie.org/dokumentation/plugins/gist>
+<https://www.getherbie.org/dokumentation/plugins/gist>
